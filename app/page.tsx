@@ -1,10 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import { Inter } from '@next/font/google';
-import Image from 'next/image';
-import styles from './page.module.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
   return (
