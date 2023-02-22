@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
-type Props = {};
+type Props = {
+  handleAnimationComplete: () => void;
+};
 
-function Header({}: Props) {
+function Header({ handleAnimationComplete }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -33,9 +35,10 @@ function Header({}: Props) {
     <motion.nav
       animate={'open'}
       // className='bg-gray-900 shadow-lg'
-      onAnimationComplete={(animation) =>
-        console.log('Animation complete', animation)
-      }
+      onAnimationComplete={(animation) => {
+        console.log('Animation complete', animation);
+        handleAnimationComplete();
+      }}
     >
       <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between h-16'>
