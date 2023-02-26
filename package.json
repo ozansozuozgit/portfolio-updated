@@ -13,11 +13,13 @@
     "@splinetool/react-spline": "^2.2.5",
     "@splinetool/runtime": "^0.9.225",
     "@types/react-dom": "18.0.11",
+    "@types/react-loader-spinner": "^4.0.0",
     "framer-motion": "^9.0.4",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "react-loader-spinner": "^5.3.4",
     "react-simple-typewriter": "^5.0.1"
   },
   "devDependencies": {

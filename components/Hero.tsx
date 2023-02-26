@@ -1,11 +1,9 @@
 'use client';
 import Spline from '@splinetool/react-spline';
 import { motion, Variants } from 'framer-motion';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { FaFileAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { useState } from 'react';
+import { Circles } from 'react-loader-spinner';
 import { Typewriter } from 'react-simple-typewriter';
-import { start } from 'repl';
 import backgroundImage from '../public/assets/images/background.svg';
 
 type Props = {
@@ -13,9 +11,9 @@ type Props = {
 };
 
 const Hero = ({ headerAnimationCompleted }: Props) => {
-  const [startTyping, setStartTyping] = useState(false);
-
-  const [animate, setAnimate] = useState('hidden');
+  const [startTyping, setStartTyping] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [animate, setAnimate] = useState<string>('hidden');
   const itemVariants: Variants = {
     visible: {
       opacity: 1,
@@ -85,11 +83,23 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
               initial='hidden'
               animate={animate}
             >
+              {loading && (
+                <Circles
+                  height='80'
+                  width='80'
+                  color='#fd5e61'
+                  ariaLabel='circles-loading'
+                  wrapperStyle={{}}
+                  wrapperClass=''
+                  visible={true}
+                />
+              )}
               <div className='h-full w-full max-w-full -mt-10 flex sm:justify-center justify-end'>
                 <Spline
                   scene='https://prod.spline.design/KJF6vW9xX8HrpC-N/scene.splinecode'
                   onLoad={() => {
                     setAnimate('visible');
+                    setLoading(false);
                   }}
                   className='h-max max-w-full m-0 bg-third spline-canvas md:!w-[350px] md:!h-[350px]'
                 />
