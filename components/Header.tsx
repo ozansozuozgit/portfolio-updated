@@ -49,12 +49,12 @@ function Header({ handleAnimationComplete }: Props) {
         handleAnimationComplete();
       }}
     >
-      <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-16'>
-          <div className='flex-shrink-0'>
+      <div className='max-w-7xl mx-auto md:px-6 px-8'>
+        <div className='flex items-center justify-center md:justify-between h-16'>
+        <div className='flex-shrink-0 md:block hidden'>
             <a className='text-jet-black font-bold text-lg'>Ozan Sozuoz</a>
           </div>
-          <div className='hidden md:block'>
+          <div className='md:hidden block'>
             <motion.div
               variants={{
                 open: {
@@ -74,7 +74,7 @@ function Header({ handleAnimationComplete }: Props) {
                   },
                 },
               }}
-              className='flex items-center space-x-4 font-bold text-jet-black text-xl'
+              className='flex items-center space-x-4 font-bold text-jet-black text-2xl'
             >
               <motion.span
                 initial={{ opacity: 0, y: 50 }}
@@ -120,7 +120,7 @@ function Header({ handleAnimationComplete }: Props) {
               </motion.span>
             </motion.div>
           </div>
-          <div className='-mr-2 flex md:hidden'>
+          <div className='-mr-2 md:flex hidden'>
             <button
               onClick={toggleMenu}
               type='button'
@@ -136,7 +136,7 @@ function Header({ handleAnimationComplete }: Props) {
 
       {isOpen && (
         <motion.div
-          className='md:hidden'
+          className='md:block hidden'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >

@@ -30,9 +30,9 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
 
   return (
     <section
-      className={`xs:max-w-6xl h-screen md:max-w-6xl mx-auto relative bg-[url('../public/assets/images/background.svg')]`}
+      className={`xs:max-w-6xl max-w-7xl  h-screen mx-auto relative bg-[url('../public/assets/images/background.svg')]`}
     >
-      <div className='flex flex-col md:flex-row md:mt-[150px] '>
+      <div className='flex flex-row sm:flex-col sm:mt-0 mt-[150px]  '>
         {headerAnimationCompleted && (
           <>
             <motion.div
@@ -54,9 +54,9 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
                   setStartTyping(true);
                 }, 500);
               }}
-              className='w-full md:w-1/2 p-10 flex flex-col'
+              className='w-full p-10 flex flex-col'
             >
-              <h1 className='text-6xl md:text-[82px] leading-none font-bold text-jet-black sm:1/2 h-[200px] xs:mb-[80px] '>
+              <h1 className='sm:text-6xl text-[82px] leading-none font-bold text-jet-black h-[200px] mb-[80px] '>
                 I'm Ozan Sozuoz
                 <br></br>{' '}
                 <span className='text-third '>
@@ -81,18 +81,18 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
               </h1>
             </motion.div>
             <motion.div
-              className='w-full md:w-1/2 h-full z-20 relative'
+              className=' w-full h-full z-20 relative'
               variants={itemVariants}
               initial='hidden'
               animate={animate}
             >
-              <div className='h-full w-full max-w-full -mt-10 flex xs:justify-center md:justify-end'>
+              <div className='h-full w-full max-w-full -mt-10 flex sm:justify-center justify-end'>
                 <Spline
                   scene='https://prod.spline.design/KJF6vW9xX8HrpC-N/scene.splinecode'
                   onLoad={() => {
                     setAnimate('visible');
                   }}
-                  className='h-max max-w-full m-0 bg-third spline-canvas '
+                  className='h-max max-w-full m-0 bg-third spline-canvas md:!w-[350px] md:!h-[350px]'
                 />
               </div>
               {/* <div className='blob'></div> */}
@@ -102,10 +102,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
       </div>
       {startTyping && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div
-            className='animate-bounce bg-white p-2 h-[50px] w-[50px] ring-1 ring-slate-900/5 shadow-lg rounded-full flex items-center justify-center             absolute left-0 right-0 md:bottom-[25%] m-auto xs:bottom[-10px]
-'
-          >
+          <div className='animate-bounce bg-white p-2 h-[50px] w-[50px] ring-1 ring-slate-900/5 shadow-lg rounded-full flex items-center justify-center             absolute left-0 right-0 bottom-[25%] m-auto sm:relative sm:flex sm:mt-[100px]'>
             <svg
               className='h-[50px] w-[50px] text-violet-500'
               fill='none'
