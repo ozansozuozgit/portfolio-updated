@@ -30,9 +30,9 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
 
   return (
     <section
-      className={`xs:max-w-6xl max-w-7xl  h-screen mx-auto relative bg-[url('../public/assets/images/background.svg')]`}
+      className={`xs:max-w-6xl max-w-6xl  h-screen mx-auto relative bg-[url('../public/assets/images/background.svg')]`}
     >
-      <div className='flex flex-row sm:flex-col sm:mt-0 mt-[150px]  '>
+      <div className='flex flex-row sm:flex-col sm:mt-0 mt-[80px]  '>
         {headerAnimationCompleted && (
           <>
             <motion.div
@@ -56,7 +56,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
               }}
               className='w-full p-10 flex flex-col'
             >
-              <h1 className='sm:text-6xl text-[82px] leading-none font-bold text-jet-black h-[200px] mb-[80px] '>
+              <h1 className='sm:text-6xl text-6xl leading-none font-bold text-jet-black h-[200px] mb-[80px] md:mb-[100px]'>
                 I'm Ozan Sozuoz
                 <br></br>{' '}
                 <span className='text-third '>
@@ -65,8 +65,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
                     <Typewriter
                       words={[
                         'Front End Developer.',
-                        'a guy who makes stupid jokes.',
-                        'like my life.',
+                        'Other Catchy Titles.',
                         'hire me please.',
                       ]}
                       loop={true}
@@ -102,7 +101,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
       </div>
       {startTyping && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div className='animate-bounce bg-white p-2 h-[50px] w-[50px] ring-1 ring-slate-900/5 shadow-lg rounded-full flex items-center justify-center             absolute left-0 right-0 bottom-[25%] m-auto sm:relative sm:flex sm:mt-[100px]'>
+          <div className='animate-bounce bg-white p-2 h-[50px] w-[50px] ring-1 ring-slate-900/5 shadow-lg rounded-full flex items-center justify-center m-auto md:mt-10'>
             <svg
               className='h-[50px] w-[50px] text-violet-500'
               fill='none'

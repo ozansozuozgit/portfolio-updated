@@ -76,7 +76,7 @@ function Header({ handleAnimationComplete }: Props) {
                   },
                 },
               }}
-              className='flex items-center space-x-4 font-bold text-jet-black text-2xl'
+              className='flex items-center space-x-4 font-bold text-jet-black text-1xl'
             >
               <motion.span
                 initial={{ opacity: 0, y: 50 }}
