@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
@@ -12,7 +14,7 @@ module.exports = {
     extend: {
       colors: {
         primary: '#FBF3E9',
-        secondary: '#B8B2FB',
+        secondary: '#23B28C',
         third: '#fd5e61',
         'light-red': '#FF7E80',
         'jet-black': '#33312F',
@@ -24,7 +26,25 @@ module.exports = {
       fontFamily: {
         ubuntu: ['Ubuntu'],
       },
+      screens: {
+        '2xl': { max: '1535px' },
+        // => @media (max-width: 1535px) { ... }
+
+        xl: { max: '1279px' },
+        // => @media (max-width: 1279px) { ... }
+
+        lg: { max: '1023px' },
+        // => @media (max-width: 1023px) { ... }
+
+        md: { max: '767px' },
+        // => @media (max-width: 767px) { ... }
+
+        sm: { max: '639px' },
+        // => @media (max-width: 639px) { ... }
+        xs: { max: '550px' },
+      },
     },
   },
   plugins: [],
+  important: true,
 };

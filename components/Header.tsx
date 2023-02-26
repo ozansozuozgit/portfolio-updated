@@ -2,7 +2,7 @@
 import { animate, motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 
 type Props = {
   handleAnimationComplete: () => void;
@@ -31,12 +31,21 @@ function Header({ handleAnimationComplete }: Props) {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+  // Add sticky navbar when scroll down 
+  window.addEventListener('scroll', function () {
+    var navbar = document.querySelector('.navbar');
+    if (window.pageYOffset > 0) {
+      navbar?.classList.add('sticky');
+    } else {
+      navbar?.classList.remove('sticky');
+    }
+  });
+
   return (
     <motion.nav
       animate={'open'}
-      // className='bg-gray-900 shadow-lg'
-      onAnimationComplete={(animation) => {
-        console.log('Animation complete', animation);
+      className='top-0 z-50 navbar'
+      onAnimationComplete={() => {
         handleAnimationComplete();
       }}
     >
@@ -49,7 +58,6 @@ function Header({ handleAnimationComplete }: Props) {
             <motion.div
               variants={{
                 open: {
-                  // clipPath: 'inset(0% 0% 0% 0% round 10px)',
                   transition: {
                     type: 'spring',
                     bounce: 1,
@@ -59,7 +67,6 @@ function Header({ handleAnimationComplete }: Props) {
                   },
                 },
                 closed: {
-                  // clipPath: 'inset(10% 50% 90% 50% round 10px)',
                   transition: {
                     type: 'spring',
                     bounce: 0,
@@ -67,7 +74,7 @@ function Header({ handleAnimationComplete }: Props) {
                   },
                 },
               }}
-              className='flex items-center space-x-4 font-bold text-jet-black'
+              className='flex items-center space-x-4 font-bold text-jet-black text-xl'
             >
               <motion.span
                 initial={{ opacity: 0, y: 50 }}

@@ -17,6 +17,7 @@ export default function Home() {
       <Header handleAnimationComplete={handleAnimationComplete}/>
       {/* Hero */}
       <Hero headerAnimationCompleted={headerAnimationCompleted} />
+      
     </main>
   );
 }
