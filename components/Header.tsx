@@ -1,7 +1,7 @@
 'use client';
 import { animate, motion, Variants } from 'framer-motion';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 
 type Props = {
@@ -31,15 +31,17 @@ function Header({ handleAnimationComplete }: Props) {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
-  // Add sticky navbar when scroll down 
-  window.addEventListener('scroll', function () {
-    var navbar = document.querySelector('.navbar');
-    if (window.pageYOffset > 0) {
-      navbar?.classList.add('sticky');
-    } else {
-      navbar?.classList.remove('sticky');
-    }
-  });
+  useEffect(() => {
+    // Add sticky navbar when scroll down
+    window.addEventListener('scroll', function () {
+      var navbar = document.querySelector('.navbar');
+      if (window.pageYOffset > 0) {
+        navbar?.classList.add('sticky');
+      } else {
+        navbar?.classList.remove('sticky');
+      }
+    });
+  }, []);
 
   return (
     <motion.nav
@@ -51,7 +53,7 @@ function Header({ handleAnimationComplete }: Props) {
     >
       <div className='max-w-7xl mx-auto md:px-6 px-8'>
         <div className='flex items-center justify-center md:justify-between h-16'>
-        <div className='flex-shrink-0 md:block hidden'>
+          <div className='flex-shrink-0 md:block hidden'>
             <a className='text-jet-black font-bold text-lg'>Ozan Sozuoz</a>
           </div>
           <div className='md:hidden block'>
