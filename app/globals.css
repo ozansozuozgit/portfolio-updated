@@ -3,18 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.blob {
-  width: 400px;
-  height: 768.283203125px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;utf8,%3Csvg xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width=%22810.395%22 height=%22768.283%22 viewBox=%22134.957 109.37 810.395 768.283%22%3E%3Cdefs%3E%3CclipPath id=%22b%22%3E%3Cpath fill=%22currentColor%22 d=%22M900 691.5q-95 191.5-290 186T299.5 762Q184 652 143.5 480.5t111-281.5q151.5-110 342-85T891 319.5q104 180.5 9 372Z%22%2F%3E%3C%2FclipPath%3E%3Cfilter id=%22a%22 x=%22-50vw%22 y=%22-50vh%22 width=%22100vw%22 height=%22100vh%22%3E%3CfeFlood flood-color=%22%23fff%22 result=%22neutral-gray%22%2F%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%222.5%22 numOctaves=%22100%22 stitchTiles=%22stitch%22 result=%22noise%22%2F%3E%3CfeColorMatrix in=%22noise%22 type=%22saturate%22 values=%220%22 result=%22destaturatedNoise%22%2F%3E%3CfeComponentTransfer in=%22desaturatedNoise%22 result=%22theNoise%22%3E%3CfeFuncA type=%22table%22 tableValues=%220 0 0.45 0%22%2F%3E%3C%2FfeComponentTransfer%3E%3CfeBlend in=%22SourceGraphic%22 in2=%22theNoise%22 mode=%22soft-light%22 result=%22noisy-image%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cg filter=%22url(%23a)%22 clip-path=%22url(%23b)%22%3E%3Cpath fill=%22%23fd5e61%22 d=%22M900 691.5q-95 191.5-290 186T299.5 762Q184 652 143.5 480.5t111-281.5q151.5-110 342-85T891 319.5q104 180.5 9 372Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+body {
+  overscroll-behavior-y: none;
 }
-
+@layer components {
+  .heroButton {
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+  }
+}
 .navbar {
   transition: all 0.3s ease-in-out;
 }
@@ -22,15 +18,15 @@
 .navbar.sticky {
   position: sticky;
   top: 0;
+  z-index: 50;
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.back{
-  /* background-image: url('../assets/images/background.svg'); */
-}
-.spline-canvas{
-  border-radius: 50% 50% 50% 50% / 60% 30% 70% 40% ;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+.spline-canvas {
+  border-radius: 50% 50% 50% 50% / 60% 30% 70% 40%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }

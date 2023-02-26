@@ -1,15 +1,16 @@
 'use client';
 import { animate, motion, Variants } from 'framer-motion';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 
 type Props = {
   handleAnimationComplete: () => void;
+  isSticky: boolean;
 };
 
-function Header({ handleAnimationComplete }: Props) {
-  const [isOpen, setIsOpen] = useState(false);
+function Header({ handleAnimationComplete, isSticky }: Props) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -31,22 +32,11 @@ function Header({ handleAnimationComplete }: Props) {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
-  useEffect(() => {
-    // Add sticky navbar when scroll down
-    window.addEventListener('scroll', function () {
-      var navbar = document.querySelector('.navbar');
-      if (window.pageYOffset > 0) {
-        navbar?.classList.add('sticky');
-      } else {
-        navbar?.classList.remove('sticky');
-      }
-    });
-  }, []);
 
   return (
     <motion.nav
       animate={'open'}
-      className='top-0 z-50 navbar'
+      className={`navbar   ${isSticky ? 'sticky' : 'snap-start'}`}
       onAnimationComplete={() => {
         handleAnimationComplete();
       }}

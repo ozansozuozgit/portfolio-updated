@@ -27,9 +27,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
   };
 
   return (
-    <section
-      className={`xs:max-w-6xl max-w-6xl  h-screen mx-auto relative bg-[url('../public/assets/images/background.svg')]`}
-    >
+    <div className={`xs:max-w-6xl max-w-6xl  h-screen mx-auto`}>
       <div className='flex flex-row sm:flex-col sm:mt-0 mt-[80px]  '>
         {headerAnimationCompleted && (
           <>
@@ -55,7 +53,9 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
               className='w-full p-10 flex flex-col'
             >
               <h1 className='sm:text-6xl text-6xl leading-none font-bold text-jet-black h-[200px] mb-[80px] md:mb-[100px]'>
-                I'm Ozan Sozuoz
+                I'm
+                <br></br>
+                Ozan Sozuoz
                 <br></br>{' '}
                 <span className='text-third '>
                   {' '}
@@ -113,7 +113,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <div className='animate-bounce bg-white p-2 h-[50px] w-[50px] ring-1 ring-slate-900/5 shadow-lg rounded-full flex items-center justify-center m-auto md:mt-10'>
             <svg
-              className='h-[50px] w-[50px] text-violet-500'
+              className='h-[50px] w-[50px] text-jungle-green'
               fill='none'
               stroke-linecap='round'
               stroke-linejoin='round'
@@ -126,7 +126,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
           </div>
         </motion.div>
       )}
-    </section>
+    </div>
   );
 };
 
