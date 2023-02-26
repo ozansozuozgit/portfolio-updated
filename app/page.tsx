@@ -21,10 +21,14 @@ export default function Home() {
       if (scrollTop > 100) {
         // change 100 to the number of pixels at which you want the header to stick
         console.log('sticky');
-        setIsSticky(true);
+        setTimeout(() => {
+          setIsSticky(true);
+        }, 500);
       } else {
         console.log('not sticky');
-        setIsSticky(false);
+        setTimeout(() => {
+          setIsSticky(false);
+        }, 500);
       }
     };
 
@@ -36,7 +40,7 @@ export default function Home() {
   }, []);
   return (
     <main
-      className='bg-primary font-ubuntu text-jet-black h-screen overflow-scroll snap-y snap-mandatory'
+      className='bg-primary font-ubuntu text-jet-black h-screen overflow-scroll snap-y snap-mandatory scroll-smooth'
       ref={containerRef}
     >
       {/* Header */}
@@ -45,7 +49,11 @@ export default function Home() {
         isSticky={isSticky}
       />
       {/* Hero */}
-      <section id='hero' className={`${isSticky ? 'snap-start' : ''}`}>
+      <section
+        id='hero'
+        style={{ paddingTop: isSticky ? '64px' : '0' }}
+        className={`${isSticky ? 'snap-start' : ''}`}
+      >
         <Hero headerAnimationCompleted={headerAnimationCompleted} />
       </section>
       <section id='about' className='snap-center'>

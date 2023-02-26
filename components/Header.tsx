@@ -36,7 +36,7 @@ function Header({ handleAnimationComplete, isSticky }: Props) {
   return (
     <motion.nav
       animate={'open'}
-      className={`navbar   ${isSticky ? 'sticky' : 'snap-start'}`}
+      className={`navbar ${isSticky ? 'sticky' : 'snap-start'}` }
       onAnimationComplete={() => {
         handleAnimationComplete();
       }}

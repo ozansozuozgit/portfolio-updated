@@ -27,7 +27,9 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
   };
 
   return (
-    <div className={`xs:max-w-6xl max-w-6xl  h-screen mx-auto`}>
+    <div
+      className={`xs:max-w-6xl max-w-6xl  h-screen mx-auto flex justify-around flex-col`}
+    >
       <div className='flex flex-row sm:flex-col sm:mt-0 mt-[80px]  '>
         {headerAnimationCompleted && (
           <>
@@ -111,19 +113,21 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
       </div>
       {startTyping && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div className='animate-bounce bg-white p-2 h-[50px] w-[50px] ring-1 ring-slate-900/5 shadow-lg rounded-full flex items-center justify-center m-auto md:mt-10'>
-            <svg
-              className='h-[50px] w-[50px] text-jungle-green'
-              fill='none'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-            >
-              <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
-            </svg>
-          </div>
+          <a href='#about'>
+            <div className='animate-bounce bg-white p-2 h-[50px] w-[50px] ring-1 ring-slate-900/5 shadow-lg rounded-full flex items-center justify-center m-auto md:mt-10'>
+              <svg
+                className='h-[50px] w-[50px] text-jungle-green'
+                fill='none'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+              >
+                <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
+              </svg>
+            </div>
+          </a>
         </motion.div>
       )}
     </div>
