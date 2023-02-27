@@ -60,8 +60,8 @@ const Projects = (props: Props) => {
             className='h-max max-w-full w-full md:!w-[350px] md:!h-[450px] m-auto'
           />
         </motion.div>
-        <div className='space-y-3 md:px-0 px-10 '>
-          <h4 className='text-4xl font-semibold text-secondary'>
+        <div className='space-y-3 md:px-0 p-10 box-shadow-custom '>
+          <h4 className='text-4xl font-semibold text-third'>
             Thought Quality
           </h4>
           <div className='text-lg space-y-5'>
