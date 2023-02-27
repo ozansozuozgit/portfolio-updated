@@ -30,7 +30,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
     <div
       className={`xs:max-w-6xl max-w-6xl  h-screen mx-auto flex justify-around flex-col`}
     >
-      <div className='flex flex-row sm:flex-col sm:mt-0 mt-[80px]  '>
+      <div className='flex flex-row sm:flex-col sm:mt-0 mt-[80px]'>
         {headerAnimationCompleted && (
           <>
             <motion.div
@@ -111,6 +111,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
           </>
         )}
       </div>
+      {!startTyping && <div style={{ height: '50px' }}></div>}
       {startTyping && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <a href='#about'>

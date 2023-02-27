@@ -3,6 +3,7 @@ import About from '@/components/About';
 import Header from '@/components/Header';
 
 import Hero from '@/components/Hero';
+import WorkExperience from '@/components/WorkExperience';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
@@ -20,15 +21,10 @@ export default function Home() {
       const scrollTop = containerRef.current.scrollTop;
       if (scrollTop > 100) {
         // change 100 to the number of pixels at which you want the header to stick
-        console.log('sticky');
-        setTimeout(() => {
-          setIsSticky(true);
-        }, 500);
+        setIsSticky(true);
       } else {
         console.log('not sticky');
-        setTimeout(() => {
-          setIsSticky(false);
-        }, 500);
+        setIsSticky(false);
       }
     };
 
@@ -40,7 +36,7 @@ export default function Home() {
   }, []);
   return (
     <main
-      className='bg-primary font-ubuntu text-jet-black h-screen overflow-scroll snap-y snap-mandatory scroll-smooth'
+      className='bg-primary font-ubuntu text-jet-black h-screen overflow-scroll scroll-smooth'
       ref={containerRef}
     >
       {/* Header */}
@@ -49,15 +45,14 @@ export default function Home() {
         isSticky={isSticky}
       />
       {/* Hero */}
-      <section
-        id='hero'
-        style={{ paddingTop: isSticky ? '64px' : '0' }}
-        className={`${isSticky ? 'snap-start' : ''}`}
-      >
+      <section id='hero'>
         <Hero headerAnimationCompleted={headerAnimationCompleted} />
       </section>
-      <section id='about' className='snap-center'>
+      <section id='about'>
         <About />
+      </section>
+      <section id='experience'>
+        {headerAnimationCompleted && <WorkExperience />}
       </section>
     </main>
   );

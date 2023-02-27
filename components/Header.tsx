@@ -36,7 +36,7 @@ function Header({ handleAnimationComplete, isSticky }: Props) {
   return (
     <motion.nav
       animate={'open'}
-      className={`navbar ${isSticky ? 'sticky' : 'snap-start'}` }
+      className={`navbar ${isSticky ? 'sticky' : 'snap-start'}`}
       onAnimationComplete={() => {
         handleAnimationComplete();
       }}
@@ -73,14 +73,28 @@ function Header({ handleAnimationComplete, isSticky }: Props) {
                 variants={itemVariants}
                 className='hover:text-third'
               >
-                <Link href='#'>Home</Link>
+                <a href='#hero'>Home</a>
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: -50 }}
                 variants={itemVariants}
                 className='hover:text-third'
               >
-                <Link href='/'>About</Link>
+                <a href='#about'>About</a>
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                variants={itemVariants}
+                className='hover:text-third'
+              >
+                <a href='#experience'>Experience</a>
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: -50 }}
+                variants={itemVariants}
+                className='hover:text-third'
+              >
+                <Link href='#skills'>Skills</Link>
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 50 }}
@@ -95,20 +109,6 @@ function Header({ handleAnimationComplete, isSticky }: Props) {
                 className='hover:text-third'
               >
                 <Link href='/'>Contact</Link>
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 50 }}
-                variants={itemVariants}
-                className='hover:text-third'
-              >
-                <Link href='/'>Experience</Link>
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: -50 }}
-                variants={itemVariants}
-                className='hover:text-third'
-              >
-                <Link href='/'>Skills</Link>
               </motion.span>
             </motion.div>
           </div>
