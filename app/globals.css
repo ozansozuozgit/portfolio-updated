@@ -8,6 +8,9 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 15px;
   }
+  .contactInput{
+    @apply outline-none rounded-sm border-b px-6 py-4 border-third text-jet-black placeholder-gray-500 transition-all focus:border-[#23B28C]/40 focus:text-[#23B28C]/40 hover:border-[#23B28C]/40
+  }
 }
 
 body {

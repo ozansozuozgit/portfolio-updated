@@ -5,21 +5,14 @@ import React, { useEffect, useRef, useState } from 'react';
 type Props = {};
 
 const Projects = (props: Props) => {
-  const [loading, setLoading] = useState<boolean>(true);
   const spline = useRef<any>();
   const targetRef = useRef<any>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      setIsVisible(entry.isIntersecting);
       if (entry.isIntersecting) {
-        console.log('visible');
         spline?.current.emitEvent('start', 'Screen');
-        console.log(spline.current);
-        // triggerAnimation();
       } else {
-        console.log('not visible');
         // spline?.current.emitEventReverse('start', 'Screen');
       }
     });
@@ -31,18 +24,15 @@ const Projects = (props: Props) => {
     };
   }, []);
   function onLoad(splineApp: any) {
-    // save the app in a ref for later use
     spline.current = splineApp;
   }
-  function triggerAnimation() {
-    spline?.current.emitEvent('start', 'Screen');
-  }
+
   return (
     <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center '>
       <h3 className='md:top-0  sm:top-5 uppercase tracking-[20px] text-2xl mb-[-50px]'>
         Projects
       </h3>
-      <div className='flex flex-row-reverse md:flex-col relative justify-evenly mx-auto items-center md:space-y-10  ' >
+      <div className='flex flex-row-reverse md:flex-col relative justify-evenly mx-auto items-center md:space-y-10  '>
         <motion.div
           initial={{
             x: 200,
@@ -61,9 +51,7 @@ const Projects = (props: Props) => {
           />
         </motion.div>
         <div className='space-y-3 md:px-0 p-10 box-shadow-custom '>
-          <h4 className='text-4xl font-semibold text-third'>
-            Thought Quality
-          </h4>
+          <h4 className='text-4xl font-semibold text-third'>Thought Quality</h4>
           <div className='text-lg space-y-5'>
             <h4 className='font-bold text-2xl'>Features:</h4>
             <ul className='list-disc list-inside '>

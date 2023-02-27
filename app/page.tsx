@@ -2,11 +2,11 @@
 import About from '@/components/About';
 import Header from '@/components/Header';
 
+import ContactMe from '@/components/ContactMe';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import WorkExperience from '@/components/WorkExperience';
-import { AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 export default function Home() {
   const [headerAnimationCompleted, setHeaderAnimationCompleted] =
@@ -30,7 +30,9 @@ export default function Home() {
     };
 
     containerRef.current.addEventListener('scroll', handleScroll);
-
+    setTimeout(() => {
+      setHeaderAnimationCompleted(true);
+    }, 15000);
     return () => {
       containerRef.current.removeEventListener('scroll', handleScroll);
     };
@@ -62,6 +64,9 @@ export default function Home() {
           </section>
           <section id='projects'>
             <Projects />
+          </section>
+          <section id='contact'>
+            <ContactMe />
           </section>
         </>
       )}
