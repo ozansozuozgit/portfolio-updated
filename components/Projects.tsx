@@ -15,7 +15,7 @@ const Projects = (props: Props) => {
       setIsVisible(entry.isIntersecting);
       if (entry.isIntersecting) {
         console.log('visible');
-        // spline?.current.emitEvent('start', 'Screen');
+        spline?.current.emitEvent('start', 'Screen');
         console.log(spline.current);
         // triggerAnimation();
       } else {

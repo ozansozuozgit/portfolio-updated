@@ -1,10 +1,11 @@
 'use client';
 import Spline from '@splinetool/react-spline';
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
 import { useState } from 'react';
 import { Circles } from 'react-loader-spinner';
 import { Typewriter } from 'react-simple-typewriter';
-import backgroundImage from '../public/assets/images/background.svg';
+import PlaceHolderImage from '../public/assets/images/hero-placeholder.png';
 
 type Props = {
   headerAnimationCompleted: boolean;
@@ -85,7 +86,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
               initial='hidden'
               animate={animate}
             >
-              {loading && (
+              {/* {loading && (
                 <Circles
                   height='80'
                   width='80'
@@ -95,7 +96,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
                   wrapperClass=''
                   visible={true}
                 />
-              )}
+              )} */}
               <div className='h-full w-full max-w-full -mt-10 flex sm:justify-center justify-end'>
                 <Spline
                   scene='https://prod.spline.design/KJF6vW9xX8HrpC-N/scene.splinecode'
@@ -106,7 +107,15 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
                   className='h-max max-w-full m-0 bg-third spline-canvas md:!w-[350px] md:!h-[350px]'
                 />
               </div>
-              {/* <div className='blob'></div> */}
+              {loading && (
+                <div className='h-full w-full max-w-full -mt-10 flex sm:justify-center justify-end'>
+                  <Image
+                    src={PlaceHolderImage}
+                    alt='placeholder image'
+                    className='h-max max-w-full m-0 bg-third spline-canvas md:!w-[350px] md:!h-[350px]'
+                  />
+                </div>
+              )}
             </motion.div>
           </>
         )}
