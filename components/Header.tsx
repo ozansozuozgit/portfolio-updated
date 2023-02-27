@@ -94,21 +94,21 @@ function Header({ handleAnimationComplete, isSticky }: Props) {
                 variants={itemVariants}
                 className='hover:text-third'
               >
-                <Link href='#skills'>Skills</Link>
+                <a href='#skills'>Skills</a>
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 50 }}
                 variants={itemVariants}
                 className='hover:text-third'
               >
-                <Link href='/'>Projects</Link>
+                <a href='#projects'>Projects</a>
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: -50 }}
                 variants={itemVariants}
                 className='hover:text-third'
               >
-                <Link href='/'>Contact</Link>
+                <a href='#contact'>Contact</a>
               </motion.span>
             </motion.div>
           </div>

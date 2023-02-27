@@ -13,7 +13,6 @@ const WorkExperience = (props: Props) => {
       <div className='flex flex-col space-y-10 w-full'>
         <ExperienceCard />
         <ExperienceCard />
-        <ExperienceCard />
       </div>
     </section>
   );
