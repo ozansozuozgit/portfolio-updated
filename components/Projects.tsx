@@ -44,7 +44,7 @@ const Projects = (props: Props) => {
 
   return (
     <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center '>
-      <h3 className='md:top-0  sm:top-5 uppercase tracking-[20px] text-2xl '>
+      <h3 className='md:top-0  sm:top-5 uppercase tracking-[5px] text-2xl '>
         Projects
       </h3>
       <div className='flex flex-row-reverse md:flex-col relative justify-evenly mx-auto items-center md:space-y-10  '>

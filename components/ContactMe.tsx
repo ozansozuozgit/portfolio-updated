@@ -13,13 +13,13 @@ type Inputs = {
 const ContactMe = (props: Props) => {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:${formData.email}?subject=${formData.subject}&body=${formData.message}}`;
+    window.location.href = `mailto:${formData.email}?subject=${formData.subject}&body=${formData.message}`;
   };
 
   return (
     <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center '>
       {' '}
-      <h3 className='md:top-0  sm:top-5 uppercase tracking-[20px] text-2xl mb-[-50px]'>
+      <h3 className='md:top-0  sm:top-5 uppercase tracking-[5px] text-2xl mb-[-50px]'>
         Contact Me
       </h3>
       <div className='flex flex-col space-y-10'>

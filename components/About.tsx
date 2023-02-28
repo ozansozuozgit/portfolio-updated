@@ -9,7 +9,7 @@ type Props = {};
 const About = (props: Props) => {
   return (
     <div className='h-screen flex flex-col relative text-left max-w-7xl px-10 justify-evenly mx-auto items-center '>
-      <h3 className='md:top-0  sm:top-5 uppercase tracking-[20px] text-2xl'>
+      <h3 className='md:top-0  sm:top-5 uppercase tracking-[5px] text-2xl'>
         About
       </h3>
 
@@ -43,16 +43,24 @@ const About = (props: Props) => {
 
           <div className='flex items-center space-x-12 max-w-7xl mx-auto justify-center '>
             {/* Github link with icon */}
-            <Link href='#' className='text-third hover:text-secondary'>
+            <Link
+              href='https://github.com/ozansozuozgit'
+              className='text-third hover:text-secondary'
+              target={'_blank'}
+            >
               <FaGithub className='md:h-[30px] md:w-[30px] h-[40px] w-[40px]' />
             </Link>
             {/* LinkedIn link with icon */}
-            <Link href='#' className='text-third hover:text-secondary'>
+            <Link
+              href='https://www.linkedin.com/in/ozan-sozuoz/'
+              className='text-third hover:text-secondary'
+              target={'_blank'}
+            >
               <FaLinkedin className='md:h-[30px] md:w-[30px] h-[40px] w-[40px]' />
             </Link>
             {/* Button with resume icon */}
             <Link
-              href='/assets/Ozan_Sozuoz_Resume_Updated.pdf'
+              href='/assets/Ozan_Sozuoz_Resume.pdf'
               target={'_blank'}
               className='bg-third hover:bg-secondary text-white font-bold py-3 px-5 rounded flex items-center text-xl md:text-sm md:py-2 md:px-2'
             >
