@@ -52,23 +52,23 @@ export default function Home() {
         <Hero headerAnimationCompleted={headerAnimationCompleted} />
       </section>
       {headerAnimationCompleted && (
-        <div className='space-y-5'>
-          <section id='about'>
+        <>
+          <section id='about' className='pt-[50px]'>
             <About />
           </section>
-          <section id='experience'>
+          <section id='experience' className='pt-[50px]'>
             <WorkExperience />
           </section>
-          <section id='skills'>
+          <section id='skills' className='pt-[50px]'>
             <Skills />
           </section>
-          <section id='projects'>
+          <section id='projects' className='pt-[50px]'>
             <Projects />
           </section>
-          <section id='contact'>
+          <section id='contact' className='pt-[50px]'>
             <ContactMe />
           </section>
-        </div>
+        </>
       )}
     </main>
   );
