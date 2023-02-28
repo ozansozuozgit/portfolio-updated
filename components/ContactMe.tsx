@@ -1,7 +1,8 @@
+import * as openai from 'openai';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { AiOutlineMail } from 'react-icons/ai';
-import { BsFillTelephoneFill } from 'react-icons/bs';
+import { BsFillChatLeftTextFill, BsFillTelephoneFill } from 'react-icons/bs';
 
 type Props = {};
 type Inputs = {
@@ -14,6 +15,24 @@ const ContactMe = (props: Props) => {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     window.location.href = `mailto:${formData.email}?subject=${formData.subject}&body=${formData.message}`;
+  };
+
+  const createMessage = async () => {
+    //@ts-ignore
+    openai.apiKey = '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';
+    console.log('process.env.OPENAI_API_KEY', process.env.OPENAI_API_KEY);
+    const prompt = 'Hello, how are you?';
+    const model = 'text-davinci-002';
+    //@ts-ignore
+    const response = await openai.Completion.create({
+      engine: model,
+      prompt: prompt,
+      maxTokens: 50,
+      n: 1,
+      stop: '\n',
+    });
+    const message = response.choices[0].text.trim();
+    console.log('message', message);
   };
 
   return (
@@ -36,6 +55,12 @@ const ContactMe = (props: Props) => {
             <a className='text-2xl sm:text-lg' href='tel:+1205-835-9898'>
               205-835-9898
             </a>
+          </div>
+          <div className='flex items-center space-x-5'>
+            <BsFillChatLeftTextFill className='text-3xl text-third' />
+            <button onClick={createMessage} className='text-2xl sm:text-lg'>
+              Generate Message{' '}
+            </button>
           </div>
         </div>
         <form
