@@ -1,5 +1,4 @@
-import * as openai from 'openai';
-import React from 'react';
+import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsFillChatLeftTextFill, BsFillTelephoneFill } from 'react-icons/bs';
@@ -12,29 +11,70 @@ type Inputs = {
   subject: string;
 };
 const ContactMe = (props: Props) => {
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit, setValue } = useForm<Inputs>();
+  const [currentModel, setCurrentModel] = useState('text-davinci-003');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [generatedMessage, setGeneratedMessage] = useState<string>('');
+
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     window.location.href = `mailto:${formData.email}?subject=${formData.subject}&body=${formData.message}`;
   };
 
-  const createMessage = async () => {
-    //@ts-ignore
-    openai.apiKey = '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';
-    console.log('process.env.OPENAI_API_KEY', process.env.OPENAI_API_KEY);
-    const prompt = 'Hello, how are you?';
-    const model = 'text-davinci-002';
-    //@ts-ignore
-    const response = await openai.Completion.create({
-      engine: model,
-      prompt: prompt,
-      maxTokens: 50,
-      n: 1,
-      stop: '\n',
-    });
-    const message = response.choices[0].text.trim();
-    console.log('message', message);
-  };
+  //   const createMessage = async () => {
 
+  //     const response = await fetch('/api/generate-answer', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         prompt:
+  //           'Write me an email to express my interest in working with a potential client named Ozan Sozuoz.',
+  //       }),
+  //     }).then((res) => {
+  //       return res.json();
+  //     });
+
+  const createMessage = async () => {
+    const response = await fetch('/api/generate-answer', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        prompt:
+          'Write me an email to express my interest in working with a potential client named Ozan Sozuoz.',
+      }),
+    });
+    console.log('Edge function returned.');
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    // This data is a ReadableStream
+    const data = response.body;
+    if (!data) {
+      return;
+    }
+
+    const reader = data.getReader();
+    const decoder = new TextDecoder();
+    let done = false;
+    let test = '';
+    while (!done) {
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+      const chunkValue = decoder.decode(value);
+      setGeneratedMessage((prev) => prev + chunkValue);
+      test += chunkValue;
+      console.log(test);
+      setValue('message', test);
+      console.log('chunkValue', chunkValue);
+    }
+
+    // setLoading(false);
+  };
   return (
     <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center sm:max-w-[80%] '>
       {' '}
@@ -56,12 +96,12 @@ const ContactMe = (props: Props) => {
               205-835-9898
             </a>
           </div>
-          {/* <div className='flex items-center space-x-5'>
+          <div className='flex items-center space-x-5'>
             <BsFillChatLeftTextFill className='text-3xl text-third' />
             <button onClick={createMessage} className='text-2xl sm:text-lg'>
               Generate Message{' '}
             </button>
-          </div> */}
+          </div>
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
