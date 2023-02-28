@@ -1,7 +1,7 @@
 'use client';
-import { animate, motion, Variants } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 
 type Props = {

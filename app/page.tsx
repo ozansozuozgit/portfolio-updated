@@ -52,7 +52,7 @@ export default function Home() {
         <Hero headerAnimationCompleted={headerAnimationCompleted} />
       </section>
       {headerAnimationCompleted && (
-        <>
+        <div className='space-y-5'>
           <section id='about'>
             <About />
           </section>
@@ -68,7 +68,7 @@ export default function Home() {
           <section id='contact'>
             <ContactMe />
           </section>
-        </>
+        </div>
       )}
     </main>
   );

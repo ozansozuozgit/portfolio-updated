@@ -42,7 +42,7 @@ const Skills = (props: Props) => {
       animate={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 100 }}
       transition={{ duration: 1 }}
-      className='h-screen flex relative xl:flex-col md:text-center text-left flex-row max-w-[2000px] xl:px-10 min-h-screen md:justify-center space-y-5 mx-auto items-center justify-evenly sm:h-[70vh] sm:min-h-[70vh]'
+      className='h-screen flex relative flex-col md:text-center text-left max-w-[2000px] xl:px-10 min-h-screen md:justify-center space-y-5 mx-auto items-center justify-evenly sm:h-[70vh] sm:min-h-[70vh]'
     >
       <h3 className='top-24 uppercase tracking-[5px] text-2xl'>Skills</h3>
       <div className='grid grid-cols-4 gap-5 md:gap-2'>

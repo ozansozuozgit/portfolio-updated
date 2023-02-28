@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 import { FaFileAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
-import profilePicture from '../public/assets/images/profile_pic.jpg';
 
 type Props = {};
 
@@ -53,7 +52,6 @@ const About = (props: Props) => {
           </div>
 
           <div className='flex items-center space-x-12 max-w-7xl mx-auto justify-center '>
-            {/* Github link with icon */}
             <Link
               href='https://github.com/ozansozuozgit'
               className='text-third hover:text-secondary'
@@ -61,7 +59,6 @@ const About = (props: Props) => {
             >
               <FaGithub className='md:h-[30px] md:w-[30px] h-[40px] w-[40px]' />
             </Link>
-            {/* LinkedIn link with icon */}
             <Link
               href='https://www.linkedin.com/in/ozan-sozuoz/'
               className='text-third hover:text-secondary'
@@ -69,7 +66,6 @@ const About = (props: Props) => {
             >
               <FaLinkedin className='md:h-[30px] md:w-[30px] h-[40px] w-[40px]' />
             </Link>
-            {/* Button with resume icon */}
             <Link
               href='/assets/Ozan_Sozuoz_Resume.pdf'
               target={'_blank'}

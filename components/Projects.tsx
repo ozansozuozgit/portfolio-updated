@@ -1,7 +1,7 @@
 import Spline from '@splinetool/react-spline';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import CssSvg from '../public/assets/images/css.svg';
 import FirebaseSvg from '../public/assets/images/firebase.svg';
 import HtmlSvg from '../public/assets/images/html.svg';
