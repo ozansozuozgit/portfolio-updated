@@ -43,7 +43,7 @@ const Projects = (props: Props) => {
   }
 
   return (
-    <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center '>
+    <div className='sm:h-auto h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center '>
       <h3 className='md:top-0  sm:top-5 uppercase tracking-[5px] text-2xl '>
         Projects
       </h3>
@@ -56,7 +56,7 @@ const Projects = (props: Props) => {
           ref={targetRef}
           transition={{ type: 'spring', bounce: 0, duration: 1.2 }}
           whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className='md:mt-[50px] md:!w-[300px] md:!h-[400px]lg:w-[350px] lg:h-[450px] w-[500px] h-[600px] mb-0  flex-shrink-0 object-cover flex'
         >
           <Spline
@@ -66,10 +66,10 @@ const Projects = (props: Props) => {
           />
         </motion.div>
         <div className='space-y-3 p-10 box-shadow-custom '>
-          <h4 className='text-4xl font-semibold text-third'>Thought Quality</h4>
+          <h4 className='text-4xl font-semibold text-third sm:text-xl'>Thought Quality</h4>
           <div className='text-lg space-y-5'>
-            <h4 className='font-bold text-2xl text-secondary'>Features:</h4>
-            <ul className='list-disc list-inside '>
+            <h4 className='font-bold text-2xl text-secondary sm:text-lg'>Features:</h4>
+            <ul className='list-disc list-inside sm:text-sm'>
               <li>
                 Simple interface to add your emotions and thoughts effortlessly.
               </li>

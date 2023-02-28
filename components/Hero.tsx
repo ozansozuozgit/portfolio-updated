@@ -29,7 +29,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
 
   return (
     <div
-      className={`xs:max-w-6xl max-w-6xl  h-screen mx-auto flex justify-around flex-col`}
+      className={`xs:max-w-6xl max-w-6xl sm:h-auto h-screen mx-auto flex justify-around flex-col`}
     >
       <div className='flex flex-row sm:flex-col sm:mt-0 mt-[80px]'>
         {headerAnimationCompleted && (
@@ -55,7 +55,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
               }}
               className='w-full p-10 flex flex-col'
             >
-              <h1 className='sm:text-6xl text-6xl leading-none font-bold text-jet-black h-[200px] mb-[80px] md:mb-[100px]'>
+              <h1 className='sm:text-4xl text-6xl leading-none font-bold text-jet-black h-[200px] mb-[80px] md:mb-[100px] sm:!mb-0'>
                 I'm
                 <br></br>
                 Ozan Sozuoz
@@ -97,7 +97,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
                   visible={true}
                 />
               )} */}
-              <div className='h-full w-full max-w-full -mt-10 flex sm:justify-center justify-end'>
+              <div className='h-full w-full max-w-full -mt-10 flex sm:justify-center justify-end sm:pointer-events-none'>
                 <Spline
                   scene='https://prod.spline.design/KJF6vW9xX8HrpC-N/scene.splinecode'
                   onLoad={() => {
@@ -124,7 +124,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
       {startTyping && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <a href='#about'>
-            <div className='animate-bounce bg-white p-2 h-[50px] w-[50px] ring-1 ring-slate-900/5 shadow-lg rounded-full flex items-center justify-center m-auto md:mt-10'>
+            <div className='animate-bounce bg-white p-2 h-[50px] w-[50px] ring-1 ring-slate-900/5 shadow-lg rounded-full flex items-center justify-center m-auto md:mt-10 sm:mb-5'>
               <svg
                 className='h-[50px] w-[50px] text-jungle-green'
                 fill='none'

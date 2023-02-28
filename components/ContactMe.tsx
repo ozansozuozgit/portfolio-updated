@@ -17,32 +17,32 @@ const ContactMe = (props: Props) => {
   };
 
   return (
-    <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center '>
+    <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center sm:max-w-[80%] '>
       {' '}
       <h3 className='md:top-0  sm:top-5 uppercase tracking-[5px] text-2xl mb-[-50px]'>
         Contact Me
       </h3>
-      <div className='flex flex-col space-y-10'>
-        <h4 className='decoration-[#fd5e61]/50 underline text-4xl font-semibold text-center'>
+      <div className='flex flex-col space-y-10  sm:space-y-5'>
+        <h4 className='decoration-[#fd5e61]/50 underline text-4xl font-semibold text-center sm:text-xl'>
           Lets get in touch!
         </h4>
-        <div className='space-y-10'>
+        <div className='space-y-10  sm:space-y-5'>
           <div className='flex items-center space-x-5'>
             <AiOutlineMail className='text-3xl text-third' />
-            <h4 className='text-2xl'>ozansozuoz@gmail.com </h4>
+            <h4 className='text-2xl sm:text-lg'>ozansozuoz@gmail.com </h4>
           </div>
           <div className='flex items-center space-x-5'>
             <BsFillTelephoneFill className='text-3xl text-third' />
-            <a className='text-2xl' href='tel:+1205-835-9898'>
+            <a className='text-2xl sm:text-lg' href='tel:+1205-835-9898'>
               205-835-9898
             </a>
           </div>
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='flex flex-col space-y-2 w-fit mx-auto'
+          className='flex flex-col space-y-2 w-fit mx-auto sm:max-w-[100%]'
         >
-          <div className='flex space-x-2'>
+          <div className='flex space-x-2 sm:flex-col sm:space-x-0 sm:space-y-2 sm:text-md'>
             <input
               {...register('name')}
               className='contactInput'

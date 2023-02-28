@@ -27,7 +27,7 @@ const ExperienceCard = (props: Props) => {
       className='card-container mt-[50px]'
       initial='offscreen'
       whileInView='onscreen'
-      viewport={{ once: false, amount: 0.6 }}
+      viewport={{ once: true, amount: 0.2 }}
     >
       <div className='splash' style={{ background: 'red' }} />
 
@@ -49,13 +49,13 @@ const ExperienceCard = (props: Props) => {
         </motion.div>
 
         <div className='md:px-0 px-10'>
-          <h4 className='text-4xl font-light text-third'>
+          <h4 className='text-4xl font-light text-third sm:text-xl'>
             Front End Developer
           </h4>
-          <p className='text-2xl mt-1 text-secondary'>Two Maids</p>
+          <p className='text-2xl mt-1 text-secondary sm:text-lg'>Two Maids</p>
 
-          <p className='uppercase py-5 font-bold'>2020 - Present</p>
-          <ul className='list-disc space-y-4 ml-5 text-lg'>
+          <p className='uppercase py-5 font-bold sm:text-sm'>2020 - Present</p>
+          <ul className='list-disc space-y-4 ml-5 text-lg sm:text-sm'>
             <li>
               Developed and managed Next.js website for Two Maids, improving
               lead generation, SEO, and user experience.

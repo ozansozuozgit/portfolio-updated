@@ -7,20 +7,20 @@ type Props = {
   skillImage?: any;
 };
 const Skill = ({ directionLeft, skillImage }: any) => {
-  console.log('skillImage', skillImage);
   return (
     <motion.div
-      className='group relative flex cursor-pointer'
+      className='group relative flex cursor-pointer overflow-x-hidden items-center justify-center'
       initial={{
-        x: directionLeft ? -200 : 200,
+        x: directionLeft ? -100 : 100,
       }}
       transition={{ duration: 1 }}
       whileInView={{ x: 0, opacity: 1 }}
+      viewport={{ once: true }}
     >
       <Image
         alt='React icon'
         src={skillImage}
-        className='rounded-xl borderobject-cover w-32 h-32 xl:w-24 xl:h-24 filter group-hover:grayscale transition duration-300 ease-in-out'
+        className='rounded-xl borderobject-cover sm:!w-12 sm:!h-12 w-32 h-32 xl:w-24 xl:h-24 filter group-hover:grayscale transition duration-300 ease-in-out'
       />
     </motion.div>
   );

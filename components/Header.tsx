@@ -139,44 +139,46 @@ function Header({ handleAnimationComplete, isSticky }: Props) {
             animate='visible'
           >
             <motion.div variants={navLinkVariants}>
-              <Link
-                href='#'
+              <a
+                href='#hero'
                 className='block px-3 py-2 rounded-md text-base font-medium'
               >
                 Home
-              </Link>
+              </a>
             </motion.div>
             <motion.div variants={navLinkVariants}>
-              <Link
-                href='#'
+              <a
+                href='#about'
                 className='block px-3 py-2 rounded-md text-base font-medium  '
               >
                 About
-              </Link>
+              </a>
+            </motion.div>
+
+            <motion.div
+              variants={navLinkVariants}
+              className='block px-3 py-2 rounded-md text-base font-medium '
+            >
+              <a href='#experience'>Experience</a>
             </motion.div>
             <motion.div
               variants={navLinkVariants}
               className='block px-3 py-2 rounded-md text-base font-medium '
             >
-              <Link href='#'>Projects</Link>
+              <a href='#skills'>Skills</a>
             </motion.div>
             <motion.div
               variants={navLinkVariants}
               className='block px-3 py-2 rounded-md text-base font-medium '
             >
-              <Link href='#'>Contact</Link>
+              <a href='#projects'>Projects</a>
             </motion.div>
+
             <motion.div
               variants={navLinkVariants}
               className='block px-3 py-2 rounded-md text-base font-medium '
             >
-              <Link href='#'>Experience</Link>
-            </motion.div>
-            <motion.div
-              variants={navLinkVariants}
-              className='block px-3 py-2 rounded-md text-base font-medium '
-            >
-              <Link href='#'>Skills</Link>
+              <a href='#contact'>Contact</a>
             </motion.div>
           </motion.div>
         </motion.div>
