@@ -56,12 +56,12 @@ const ContactMe = (props: Props) => {
               205-835-9898
             </a>
           </div>
-          <div className='flex items-center space-x-5'>
+          {/* <div className='flex items-center space-x-5'>
             <BsFillChatLeftTextFill className='text-3xl text-third' />
             <button onClick={createMessage} className='text-2xl sm:text-lg'>
               Generate Message{' '}
             </button>
-          </div>
+          </div> */}
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
