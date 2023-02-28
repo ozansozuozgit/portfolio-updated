@@ -39,7 +39,7 @@ export default function Home() {
   }, []);
   return (
     <main
-      className='bg-primary font-ubuntu text-jet-black h-screen overflow-scroll scroll-smooth overflow-x-hidden'
+      className='bg-primary font-ubuntu text-jet-black h-screen overflow-y-scroll scroll-smooth overflow-x-hidden  scrollbar scrollbar-thumb-third scrollbar-track-gray-100 space-y-10'
       ref={containerRef}
     >
       {/* Header */}

@@ -12,7 +12,9 @@ type Inputs = {
 };
 const ContactMe = (props: Props) => {
   const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData);
+  const onSubmit: SubmitHandler<Inputs> = (formData) => {
+    window.location.href = `mailto:${formData.email}?subject=${formData.subject}&body=${formData.message}}`;
+  };
 
   return (
     <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center '>
@@ -21,16 +23,16 @@ const ContactMe = (props: Props) => {
         Contact Me
       </h3>
       <div className='flex flex-col space-y-10'>
-        <h4 className='decoration-[#23B28C]/50 underline text-4xl font-semibold text-center'>
+        <h4 className='decoration-[#fd5e61]/50 underline text-4xl font-semibold text-center'>
           Lets get in touch!
         </h4>
         <div className='space-y-10'>
-          <div className='flex item-center space-x-5'>
-            <AiOutlineMail className='text-3xl animate-pulse text-third' />
+          <div className='flex items-center space-x-5'>
+            <AiOutlineMail className='text-3xl text-third' />
             <h4 className='text-2xl'>ozansozuoz@gmail.com </h4>
           </div>
-          <div className='flex item-center space-x-5'>
-            <BsFillTelephoneFill className='text-3xl animate-pulse text-third' />
+          <div className='flex items-center space-x-5'>
+            <BsFillTelephoneFill className='text-3xl text-third' />
             <a className='text-2xl' href='tel:+1205-835-9898'>
               205-835-9898
             </a>
@@ -46,12 +48,14 @@ const ContactMe = (props: Props) => {
               className='contactInput'
               placeholder='Name'
               type='text'
+              required
             />
             <input
               {...register('email')}
               className='contactInput'
               placeholder='Email'
               type='email'
+              required
             />
           </div>
           <input
@@ -64,6 +68,7 @@ const ContactMe = (props: Props) => {
             placeholder='Message'
             className='contactInput'
             {...register('message')}
+            required
           ></textarea>
           <button
             type='submit'

@@ -1,13 +1,28 @@
 import Spline from '@splinetool/react-spline';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
-
+import CssSvg from '../public/assets/images/css.svg';
+import FirebaseSvg from '../public/assets/images/firebase.svg';
+import HtmlSvg from '../public/assets/images/html.svg';
+import JsSvg from '../public/assets/images/javascript.svg';
+import ReactSvg from '../public/assets/images/react.svg';
+import ReduxSvg from '../public/assets/images/redux.svg';
+import TypeScriptSvg from '../public/assets/images/typescript.svg';
 type Props = {};
 
 const Projects = (props: Props) => {
   const spline = useRef<any>();
   const targetRef = useRef<any>(null);
-
+  const imageArray = [
+    CssSvg,
+    FirebaseSvg,
+    HtmlSvg,
+    JsSvg,
+    ReactSvg,
+    ReduxSvg,
+    TypeScriptSvg,
+  ];
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -29,7 +44,7 @@ const Projects = (props: Props) => {
 
   return (
     <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center '>
-      <h3 className='md:top-0  sm:top-5 uppercase tracking-[20px] text-2xl mb-[-50px]'>
+      <h3 className='md:top-0  sm:top-5 uppercase tracking-[20px] text-2xl '>
         Projects
       </h3>
       <div className='flex flex-row-reverse md:flex-col relative justify-evenly mx-auto items-center md:space-y-10  '>
@@ -47,13 +62,13 @@ const Projects = (props: Props) => {
           <Spline
             scene='https://prod.spline.design/qP3F2IfinnN439To/scene.splinecode'
             onLoad={onLoad}
-            className='h-max max-w-full w-full md:!w-[350px] md:!h-[450px] m-auto'
+            className='h-max max-w-full w-full md:!w-[250px] md:!h-[450px] m-auto'
           />
         </motion.div>
-        <div className='space-y-3 md:px-0 p-10 box-shadow-custom '>
+        <div className='space-y-3 p-10 box-shadow-custom '>
           <h4 className='text-4xl font-semibold text-third'>Thought Quality</h4>
           <div className='text-lg space-y-5'>
-            <h4 className='font-bold text-2xl'>Features:</h4>
+            <h4 className='font-bold text-2xl text-secondary'>Features:</h4>
             <ul className='list-disc list-inside '>
               <li>
                 Simple interface to add your emotions and thoughts effortlessly.
@@ -69,18 +84,11 @@ const Projects = (props: Props) => {
               <li>Get notified daily to input your thoughts.</li>
             </ul>
             <div className='space-y-5'>
-              <h4 className='font-bold text-2xl'>Tech Stack:</h4>
-              <div className='flex space-x-5 '>
-                <img
-                  src='https://cdn.worldvectorlogo.com/logos/react-2.svg'
-                  alt=''
-                  className='rounded-full border border-secondary object-cover w-8 h-8'
-                />
-                <img
-                  src='https://cdn.worldvectorlogo.com/logos/react-2.svg'
-                  alt=''
-                  className='rounded-full border border-secondary object-cover w-8 h-8'
-                />
+              <h4 className='font-bold text-1xl'>Tech Stack:</h4>
+              <div className='flex space-x-5 flex-wrap'>
+                {imageArray.map((image) => {
+                  return <Image src={image} alt='image' className='w-5' />;
+                })}
               </div>
             </div>
           </div>
