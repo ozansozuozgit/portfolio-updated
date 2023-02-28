@@ -29,6 +29,7 @@ module.exports = {
       screens: {
         '2xl': { max: '1535px' },
         // => @media (max-width: 1535px) { ... }
+        '1xl': { max: '1335px' },
 
         xl: { max: '1279px' },
         // => @media (max-width: 1279px) { ... }

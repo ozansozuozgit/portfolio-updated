@@ -29,7 +29,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
 
   return (
     <div
-      className={`xs:max-w-6xl max-w-6xl sm:h-auto h-screen mx-auto flex justify-around flex-col`}
+      className={`xs:max-w-6xl max-w-6xl sm:h-auto h-screen 2xl:h-auto mx-auto flex justify-around flex-col`}
     >
       <div className='flex flex-row sm:flex-col sm:mt-0 mt-[80px]'>
         {headerAnimationCompleted && (
