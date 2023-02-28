@@ -1,3 +1,4 @@
+import { useForm as useFormFormspree, ValidationError } from '@formspree/react';
 import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { AiOutlineMail } from 'react-icons/ai';
@@ -12,28 +13,15 @@ type Inputs = {
 };
 const ContactMe = (props: Props) => {
   const { register, handleSubmit, setValue } = useForm<Inputs>();
-  const [currentModel, setCurrentModel] = useState('text-davinci-003');
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [generatedMessage, setGeneratedMessage] = useState<string>('');
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:${formData.email}?subject=${formData.subject}&body=${formData.message}`;
+    window.location.href = `mailto:ozansozuoz@gmail.com?subject=${formData.subject}&body=${formData.message}`;
   };
 
-  //   const createMessage = async () => {
-
-  //     const response = await fetch('/api/generate-answer', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         prompt:
-  //           'Write me an email to express my interest in working with a potential client named Ozan Sozuoz.',
-  //       }),
-  //     }).then((res) => {
-  //       return res.json();
-  //     });
+  const [state, handleSubmitFormspree] = useFormFormspree('mvovbqkr');
+  if (state.succeeded) {
+    console.log('success');
+  }
 
   const createMessage = async () => {
     const response = await fetch('/api/generate-answer', {
@@ -61,19 +49,14 @@ const ContactMe = (props: Props) => {
     const reader = data.getReader();
     const decoder = new TextDecoder();
     let done = false;
-    let test = '';
+    let messageString = '';
     while (!done) {
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
       const chunkValue = decoder.decode(value);
-      setGeneratedMessage((prev) => prev + chunkValue);
-      test += chunkValue;
-      console.log(test);
-      setValue('message', test);
-      console.log('chunkValue', chunkValue);
+      messageString += chunkValue;
+      setValue('message', messageString);
     }
-
-    // setLoading(false);
   };
   return (
     <div className='h-screen flex flex-col relative  text-left max-w-7xl px-10 justify-evenly mx-auto items-center sm:max-w-[80%] '>
@@ -86,57 +69,53 @@ const ContactMe = (props: Props) => {
           Lets get in touch!
         </h4>
         <div className='space-y-10  sm:space-y-5'>
-          <div className='flex items-center space-x-5'>
-            <AiOutlineMail className='text-3xl text-third' />
-            <h4 className='text-2xl sm:text-lg'>ozansozuoz@gmail.com </h4>
-          </div>
-          <div className='flex items-center space-x-5'>
-            <BsFillTelephoneFill className='text-3xl text-third' />
-            <a className='text-2xl sm:text-lg' href='tel:+1205-835-9898'>
-              205-835-9898
-            </a>
-          </div>
+
           <div className='flex items-center space-x-5'>
             <BsFillChatLeftTextFill className='text-3xl text-third' />
             <button onClick={createMessage} className='text-2xl sm:text-lg'>
-              Generate Message{' '}
+              Generate Message from ChatGPT
             </button>
           </div>
         </div>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmitFormspree}
           className='flex flex-col space-y-2 w-fit mx-auto sm:max-w-[100%]'
         >
           <div className='flex space-x-2 sm:flex-col sm:space-x-0 sm:space-y-2 sm:text-md'>
             <input
-              {...register('name')}
               className='contactInput'
               placeholder='Name'
               type='text'
               required
+              id='name'
+              name='name'
             />
             <input
-              {...register('email')}
               className='contactInput'
               placeholder='Email'
               type='email'
               required
+              id='email'
+              name='email'
             />
           </div>
           <input
-            {...register('subject')}
             placeholder='Subject'
             className='contactInput'
             type='text'
+            id='subject'
+            name='subject'
           />
           <textarea
             placeholder='Message'
-            className='contactInput'
-            {...register('message')}
+            className='contactInput h-[200px]'
+            id='message'
+            name='message'
             required
-          ></textarea>
+          />
           <button
             type='submit'
+            disabled={state.submitting}
             className='bg-third text-white py-5 px-10 rounded-md font-bold text-lg hover:opacity-[0.5]'
           >
             Submit
