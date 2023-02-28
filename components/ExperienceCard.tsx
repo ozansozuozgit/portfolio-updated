@@ -35,18 +35,13 @@ const ExperienceCard = (props: Props) => {
         className='card p-5 flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 sm:w-[500px] md:w-[600px] w-[900px]  bg-[#292929]'
         variants={cardVariants}
       >
-        <motion.div
-          initial={{ y: -100, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          whileInView={{ y: 0, opacity: 1 }}
-        >
-          {' '}
+        <div>
           <Image
             src={TwoMaidsLogo}
             alt=''
             className='xl:w-32 xl:h-32 w-[200px] h-[200px] object-fill'
           />
-        </motion.div>
+        </div>
 
         <div className='md:px-0 px-10'>
           <h4 className='text-4xl font-light text-third sm:text-xl'>
