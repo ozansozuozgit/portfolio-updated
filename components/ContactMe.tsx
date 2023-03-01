@@ -49,9 +49,9 @@ const ContactMe = (props: Props) => {
     setMessage('');
     const onDataReceived = (chunk: string) =>
       setMessage((prev) => prev + chunk);
-
+    console.log(name);
     generateChatGPTResponse(
-      `${name.length && 'my name is '} ${name.length && {name}} . Write me an email to express my interest in hiring a frontend developer named Ozan Sozuoz. Make it a little funny. ${
+      `My name is ${name} . Write me an email to express my interest in hiring a frontend developer named Ozan Sozuoz. Make it a little funny. ${
         email ? 'You can reach me at' : ''
       } ${email ? email : ''}`,
       onDataReceived

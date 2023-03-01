@@ -43,8 +43,8 @@ const ExperienceCard = (props: Props) => {
           />
         </div>
 
-        <div className='md:px-0 px-10'>
-          <h4 className='text-4xl font-light text-third sm:text-xl'>
+        <div className='p-10'>
+          <h4 className='text-4xl text-third sm:text-xl'>
             Front End Developer
           </h4>
           <p className='text-2xl mt-1 text-secondary sm:text-lg'>Two Maids</p>
