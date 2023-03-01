@@ -35,7 +35,7 @@ const ContactMe = (props: Props) => {
       setMessage((prev) => prev + chunk);
 
     generateChatGPTResponse(
-      `I am a recruiter. Write me an email to express my interest ${name} in working with a potential hire named Ozan Sozuoz who is a front end developer. ${
+      `I am a recruiter, my name is ${name} . Write me an email to express my interest in working with a potential hire named Ozan Sozuoz who is a front end developer. ${
         email ? 'You can reach me at' : ''
       } ${email ? email : ''}`,
       onDataReceived
@@ -63,7 +63,8 @@ const ContactMe = (props: Props) => {
         rounded-full shadow-sm text-sm font-medium text-white 
         bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 
         hover:to-indigo-700 focus:outline-none focus:ring-2 
-        focus:ring-offset-2 focus:ring-indigo-500' disabled={isLoading}
+        focus:ring-offset-2 focus:ring-indigo-500'
+              disabled={isLoading}
               onClick={createMessage}
             >
               {!isLoading ? (
@@ -80,7 +81,6 @@ const ContactMe = (props: Props) => {
                   wrapperStyle={{}}
                   wrapperClass='mr-2 h-auto w-5'
                   visible={true}
-
                 />
               )}
               Generate Message from ChatGPT
