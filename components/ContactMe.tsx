@@ -31,6 +31,8 @@ const ContactMe = (props: Props) => {
   const [state, handleSubmitFormspree] = useFormFormspree('mvovbqkr');
 
   useEffect(() => {
+    console.log(state.result);
+    if (state.result === null) return;
     if (state.succeeded) {
       notify('success');
       setName('');
