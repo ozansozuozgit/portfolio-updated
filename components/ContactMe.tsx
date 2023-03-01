@@ -1,5 +1,5 @@
 import { useForm as useFormFormspree } from '@formspree/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { BsFillChatLeftTextFill } from 'react-icons/bs';
 import { Circles } from 'react-loader-spinner';
@@ -20,13 +20,27 @@ const ContactMe = (props: Props) => {
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const notify = () =>
-    toast('Email sent! I will get back to you as soon as possible!');
+  const notify = (status: string) => {
+    if (status === 'success') {
+      toast.success('Email sent! I will get back to you as soon as possible!');
+    } else {
+      toast.error('Something went wrong! Please try again later.');
+    }
+  };
 
   const [state, handleSubmitFormspree] = useFormFormspree('mvovbqkr');
-  if (state.succeeded) {
-    notify();
-  }
+
+  useEffect(() => {
+    if (state.succeeded) {
+      notify('success');
+      setName('');
+      setEmail('');
+      setSubject('');
+      setMessage('');
+    } else {
+      notify('error');
+    }
+  }, [state.result]);
 
   const createMessage = async () => {
     setIsLoading(true);
@@ -55,9 +69,6 @@ const ContactMe = (props: Props) => {
         </h4>
         <div className='space-y-10  sm:space-y-5'>
           <div className='flex items-center space-x-5 justify-center'>
-            {/* <button onClick={createMessage} className='text-2xl sm:text-lg text-secondary'>
-              Generate Message from ChatGPT
-            </button> */}
             <button
               className='inline-flex items-center px-4 py-2 border border-transparent 
         rounded-full shadow-sm text-sm font-medium text-white 
