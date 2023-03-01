@@ -1,13 +1,14 @@
 'use client';
 import About from '@/components/About';
-import Header from '@/components/Header';
-
 import ContactMe from '@/components/ContactMe';
+import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import WorkExperience from '@/components/WorkExperience';
 import { useEffect, useRef, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function Home() {
   const [headerAnimationCompleted, setHeaderAnimationCompleted] =
     useState<boolean>(false);
@@ -70,6 +71,7 @@ export default function Home() {
           </section>
         </>
       )}
+      <ToastContainer />
     </main>
   );
 }

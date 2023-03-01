@@ -1,8 +1,8 @@
-import { useForm as useFormFormspree, ValidationError } from '@formspree/react';
+import { useForm as useFormFormspree } from '@formspree/react';
 import React, { useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { AiOutlineMail } from 'react-icons/ai';
-import { BsFillChatLeftTextFill, BsFillTelephoneFill } from 'react-icons/bs';
+import { useForm } from 'react-hook-form';
+import { BsFillChatLeftTextFill } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 
 type Props = {};
 type Inputs = {
@@ -12,15 +12,18 @@ type Inputs = {
   subject: string;
 };
 const ContactMe = (props: Props) => {
-  const { register, handleSubmit, setValue } = useForm<Inputs>();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
 
-  const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    window.location.href = `mailto:ozansozuoz@gmail.com?subject=${formData.subject}&body=${formData.message}`;
-  };
+  const notify = () =>
+    toast('Email sent! I will get back to you as soon as possible!');
 
   const [state, handleSubmitFormspree] = useFormFormspree('mvovbqkr');
   if (state.succeeded) {
     console.log('success');
+    notify();
   }
 
   const createMessage = async () => {
@@ -30,16 +33,16 @@ const ContactMe = (props: Props) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        prompt:
-          'Write me an email to express my interest in working with a potential client named Ozan Sozuoz.',
+        prompt: `I am a recruiter. Write me an email to express my interest ${name} in working with a potential hire named Ozan Sozuoz who is a front end developer. ${
+          email ? 'You can reach me at' : ''
+        } ${email ? email : ''}`,
       }),
     });
-    console.log('Edge function returned.');
 
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-
+    setMessage('');
     // This data is a ReadableStream
     const data = response.body;
     if (!data) {
@@ -55,7 +58,8 @@ const ContactMe = (props: Props) => {
       done = doneReading;
       const chunkValue = decoder.decode(value);
       messageString += chunkValue;
-      setValue('message', messageString);
+      // setMessage('message', messageString);
+      setMessage((prev) => prev + chunkValue);
     }
   };
   return (
@@ -69,10 +73,22 @@ const ContactMe = (props: Props) => {
           Lets get in touch!
         </h4>
         <div className='space-y-10  sm:space-y-5'>
-
-          <div className='flex items-center space-x-5'>
-            <BsFillChatLeftTextFill className='text-3xl text-third' />
-            <button onClick={createMessage} className='text-2xl sm:text-lg'>
+          <div className='flex items-center space-x-5 justify-center'>
+            {/* <button onClick={createMessage} className='text-2xl sm:text-lg text-secondary'>
+              Generate Message from ChatGPT
+            </button> */}
+            <button
+              className='inline-flex items-center px-4 py-2 border border-transparent 
+        rounded-full shadow-sm text-sm font-medium text-white 
+        bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 
+        hover:to-indigo-700 focus:outline-none focus:ring-2 
+        focus:ring-offset-2 focus:ring-indigo-500'
+              onClick={createMessage}
+            >
+              <BsFillChatLeftTextFill
+                className='-ml-1 mr-2 h-5 w-5'
+                aria-hidden='true'
+              />
               Generate Message from ChatGPT
             </button>
           </div>
@@ -89,14 +105,22 @@ const ContactMe = (props: Props) => {
               required
               id='name'
               name='name'
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
             />
             <input
               className='contactInput'
-              placeholder='Email'
+              placeholder='Your Email'
               type='email'
               required
               id='email'
               name='email'
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
           </div>
           <input
@@ -105,6 +129,10 @@ const ContactMe = (props: Props) => {
             type='text'
             id='subject'
             name='subject'
+            value={subject}
+            onChange={(e) => {
+              setSubject(e.target.value);
+            }}
           />
           <textarea
             placeholder='Message'
@@ -112,6 +140,10 @@ const ContactMe = (props: Props) => {
             id='message'
             name='message'
             required
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
           />
           <button
             type='submit'

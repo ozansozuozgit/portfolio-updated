@@ -86,8 +86,8 @@ const Projects = (props: Props) => {
             <div className='space-y-5'>
               <h4 className='font-bold text-1xl'>Tech Stack:</h4>
               <div className='flex space-x-5 flex-wrap'>
-                {imageArray.map((image) => {
-                  return <Image src={image} alt='image' className='w-5' />;
+                {imageArray.map((image,index) => {
+                  return <Image src={image} key={index} alt='image' className='w-5' />;
                 })}
               </div>
             </div>
