@@ -86,17 +86,7 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
               initial='hidden'
               animate={animate}
             >
-              {/* {loading && (
-                <Circles
-                  height='80'
-                  width='80'
-                  color='#fd5e61'
-                  ariaLabel='circles-loading'
-                  wrapperStyle={{}}
-                  wrapperClass=''
-                  visible={true}
-                />
-              )} */}
+
               <div className='h-full w-full max-w-full -mt-10 flex sm:justify-center justify-end sm:pointer-events-none'>
                 <Spline
                   scene='https://prod.spline.design/KJF6vW9xX8HrpC-N/scene.splinecode'
