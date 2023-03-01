@@ -51,7 +51,7 @@ const ContactMe = (props: Props) => {
       setMessage((prev) => prev + chunk);
 
     generateChatGPTResponse(
-      `I am a recruiter, my name is ${name} . Write me an email to express my interest in working with a potential hire named Ozan Sozuoz who is a front end developer. ${
+      `${name.length && 'my name is '} ${name.length && {name}} . Write me an email to express my interest in hiring a frontend developer named Ozan Sozuoz. Make it a little funny. ${
         email ? 'You can reach me at' : ''
       } ${email ? email : ''}`,
       onDataReceived
