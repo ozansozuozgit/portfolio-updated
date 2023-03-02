@@ -1,6 +1,7 @@
 import Spline from '@splinetool/react-spline';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 import CssSvg from '../public/assets/images/css.svg';
 import FirebaseSvg from '../public/assets/images/firebase.svg';
@@ -66,9 +67,13 @@ const Projects = (props: Props) => {
           />
         </motion.div>
         <div className='space-y-3 p-10 box-shadow-custom '>
-          <h4 className='text-4xl font-semibold text-third sm:text-xl'>Thought Quality</h4>
+          <h4 className='text-4xl font-semibold text-third sm:text-xl'>
+            Thought Quality
+          </h4>
           <div className='text-lg space-y-5'>
-            <h4 className='font-bold text-2xl text-secondary sm:text-lg'>Features:</h4>
+            <h4 className='font-bold text-2xl text-secondary sm:text-lg'>
+              Features:
+            </h4>
             <ul className='list-disc list-inside sm:text-sm'>
               <li>
                 Simple interface to add your emotions and thoughts effortlessly.
@@ -83,13 +88,28 @@ const Projects = (props: Props) => {
               </li>
               <li>Get notified daily to input your thoughts.</li>
             </ul>
+
             <div className='space-y-5'>
               <h4 className='font-bold text-1xl'>Tech Stack:</h4>
-              <div className='flex space-x-5 flex-wrap'>
-                {imageArray.map((image,index) => {
-                  return <Image src={image} key={index} alt='image' className='w-5' />;
+              <div className='flex space-x-5 flex-wrap mb-5'>
+                {imageArray.map((image, index) => {
+                  return (
+                    <Image
+                      src={image}
+                      key={index}
+                      alt='image'
+                      className='w-5'
+                    />
+                  );
                 })}
               </div>
+              <Link
+                href='https://apps.apple.com/us/app/thought-quality/id1640930233'
+                target='_blank'
+                className='text-blue-500 hover:text-blue-600 mt-5 font-bold '
+              >
+                <span className='text-2xl m-r2'>👉 </span>Download in App Store 
+              </Link>
             </div>
           </div>
         </div>
