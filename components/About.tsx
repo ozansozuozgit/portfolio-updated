@@ -67,7 +67,7 @@ const About = (props: Props) => {
               <FaLinkedin className='md:h-[30px] md:w-[30px] h-[40px] w-[40px]' />
             </Link>
             <Link
-              href='/assets/Ozan_Sozuoz_Resume.pdf'
+              href='/assets/Ozan_Sozuoz_Frontend_Developer.pdf'
               target={'_blank'}
               className='bg-third hover:bg-secondary text-white font-bold py-3 px-5 rounded flex items-center text-xl md:text-sm md:py-2 md:px-2'
             >
