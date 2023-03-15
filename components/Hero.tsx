@@ -66,8 +66,8 @@ const Hero = ({ headerAnimationCompleted }: Props) => {
                     <Typewriter
                       words={[
                         'Front End Developer.',
-                        'Other Catchy Titles.',
-                        'hire me please.',
+                        'Cool Teammate.',
+                        'Hard Worker.',
                       ]}
                       loop={true}
                       cursor
