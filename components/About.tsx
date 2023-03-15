@@ -25,10 +25,35 @@ const About = (props: Props) => {
           className='md:mt-[20px] md:!w-[300px] md:!h-[300px] md:rounded-full lg:w-[350px] lg:h-[450px] w-[500px] h-[600px] mb-0 rounded-lg shadow-2xl flex-shrink-0 object-cover'
         />
         <div className=' md:px-0 px-10 space-y-10 md:mt-10'>
-          <h4 className='text-4xl font-semibold text-center sm:text-xl'>
-            What I'm{' '}
-            <span className='underline decoration-[#23B28C]/70'>All</span> About
-          </h4>
+          <div className='section-process'>
+            <div className='process-steps-container'>
+              <div className='process-step-container process-step-1'>
+                <div className='process-step-title-container'>
+                  <h1 className='process-step-title'>Creative.</h1>
+                  <h1 className='process-step-title process-step-title-overlay'>
+                    Creative.
+                  </h1>
+                </div>
+              </div>
+              <div className='process-step-container process-step-2'>
+                <div className='process-step-title-container'>
+                  <h1 className='process-step-title'>Engaging.</h1>
+                  <h1 className='process-step-title process-step-title-overlay'>
+                    Engaging.
+                  </h1>
+                </div>
+              </div>
+              <div className='process-step-container process-step-3'>
+                <div className='process-step-title-container'>
+                  <h1 className='process-step-title'>Adaptable.</h1>
+                  <h1 className='process-step-title process-step-title-overlay'>
+                    Adaptable.
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className='text-lg sm:text-sm space-y-4'>
             <p>
               If you're looking for someone who can create amazing web apps,
@@ -45,7 +70,7 @@ const About = (props: Props) => {
             <p>
               {' '}
               Aside from my passion for tech, I also love hitting the gym and
-              lifting heavy weights. And when I'm not coding or lifting weights,
+              lifting heavy weights. And when I'm not coding, playing music or lifting weights
               you can find me enjoying the great outdoors or traveling to new
               places.
             </p>
