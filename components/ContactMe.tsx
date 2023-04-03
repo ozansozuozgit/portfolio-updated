@@ -49,7 +49,6 @@ const ContactMe = (props: Props) => {
     setMessage('');
     const onDataReceived = (chunk: string) =>
       setMessage((prev) => prev + chunk);
-    console.log(name);
     generateChatGPTResponse(
       `My name is ${name} . Write me an email to express my interest in hiring a frontend developer named Ozan Sozuoz. Make it a little funny. ${
         email ? 'You can reach me at' : ''
@@ -71,7 +70,7 @@ const ContactMe = (props: Props) => {
         </h4>
         <div className='space-y-10  sm:space-y-5'>
           <div className='flex items-center space-x-5 justify-center'>
-            <button
+            {/* <button
               className='inline-flex items-center px-4 py-2 border border-transparent 
         rounded-full shadow-sm text-sm font-medium text-white 
         bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 
@@ -97,7 +96,7 @@ const ContactMe = (props: Props) => {
                 />
               )}
               Generate Message from ChatGPT
-            </button>
+            </button> */}
           </div>
         </div>
 
